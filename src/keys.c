@@ -6,7 +6,7 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 22:36:44 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/01/07 02:19:38 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/01/08 19:11:40 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,23 @@ void			ft_selected(t_term *term, int index)
 		i++;
 	}
 }
+
 void			ft_return(t_term *term)
 {
 	t_lst		*tmp;
 
 	tmp = term->list;
+	tputs(tgetstr("te", NULL), 0, fd_putchar);
 	while (tmp)
 	{
 		if (tmp->color)
 		{
-			fprintf(stdin, "%s ",tmp->name);
+			ft_putstr(tmp->name);
+			write(1, " ",1);
 		}
 		tmp = tmp->next;
 	}
+	exit_term(term);
 }
 int				move_down(t_term *term, int index)
 {
@@ -53,7 +57,7 @@ int				move_down(t_term *term, int index)
 
 	nb_colom = (term->info.nb_col / (term->info.max_len + 1));
 	if (index == term->info.nb_elem - 1)
-		return (1);
+		return (0);
 	else if (nb_colom == term->info.nb_elem - 1)
 		return (term->info.nb_elem - 1);
 	else if (index < term->info.nb_elem - 1)
@@ -67,10 +71,10 @@ int				move_up(t_term *term, int index)
 	int		nb_colom;
 
 	nb_colom = (term->info.nb_col / (term->info.max_len + 1));
-	if (index == 1)
+	if (index == 0)
 		return (term->info.nb_elem - 1);
 	else if (index <= term->info.nb_elem - 1)
 		if (index - nb_colom >= 1)
 			return (index - nb_colom);
-	return (1);
+	return (0);
 }

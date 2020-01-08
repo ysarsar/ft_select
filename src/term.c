@@ -6,7 +6,7 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 18:24:45 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/01/05 23:58:32 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/01/07 21:08:53 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void		init_term(t_term *term)
 {
-	if (!isatty(0))
+	if (!isatty(2))
 		print_error("isatty");
-	if (((term->fd) = open(ttyname(0), O_RDWR)) == -1)
+	if (((term->fd) = open("/dev/tty", O_RDWR)) == -1)
 		print_error("ttyname");
 	if (tgetent(NULL, getenv("TERM")) < 1)
 		print_error("getenv");

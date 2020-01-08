@@ -6,7 +6,7 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 18:12:42 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/01/07 02:19:16 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/01/08 17:00:56 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <signal.h>
 # include <fcntl.h>
 # include <term.h>
-#include <stdio.h>
+# include <stdio.h>
 
 # define K_DEL 2117294875
 # define K_RIGHT 4414235
@@ -76,5 +76,6 @@ void				ft_remove_node(t_term *term, int index);
 int					move_down(t_term *term, int index);
 int					move_up(t_term *term, int index);
 void				catch_signal(void);
+void				exit_term(t_term *term);
 
 #endif
