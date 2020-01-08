@@ -6,13 +6,13 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 19:47:16 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/01/08 19:25:44 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/01/08 22:44:25 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_select.h"
 
-static	void	list_push(t_lst	**head, t_lst *new)
+static	void	list_push(t_lst **head, t_lst *new)
 {
 	t_lst	*current;
 
@@ -25,7 +25,6 @@ static	void	list_push(t_lst	**head, t_lst *new)
 			current = current->next;
 		current->next = new;
 	}
-	
 }
 
 static	t_lst	*create_node(char *av)
@@ -54,6 +53,24 @@ void			init_list(t_term *term, char **av)
 	}
 }
 
+static	int		rmv_nde(t_term *term, int index)
+{
+	t_lst	*tmp;
+	t_lst	*cur;
+
+	cur = term->list;
+	if (index == 0)
+	{
+		tmp = term->list;
+		term->list = term->list->next;
+		free(tmp->color);
+		ft_strdel(&tmp->name);
+		free(tmp);
+		return (1);
+	}
+	return (0);
+}
+
 void			ft_remove_node(t_term *term, int index)
 {
 	t_lst	*tmp;
@@ -62,15 +79,8 @@ void			ft_remove_node(t_term *term, int index)
 
 	cur = term->list;
 	i = 0;
-	if (index == 0)
-	{
-		tmp = term->list;
-		term->list = term->list->next;
-		free(tmp->color);
-		ft_strdel(&tmp->name);
-		free(tmp);
+	if (rmv_nde(term, index))
 		return ;
-	}
 	while (cur)
 	{
 		if (index == i + 1)

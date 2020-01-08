@@ -6,7 +6,7 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 22:36:44 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/01/08 19:11:40 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/01/08 22:36:29 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,13 @@ void			ft_return(t_term *term)
 		if (tmp->color)
 		{
 			ft_putstr(tmp->name);
-			write(1, " ",1);
+			write(1, " ", 1);
 		}
 		tmp = tmp->next;
 	}
 	exit_term(term);
 }
+
 int				move_down(t_term *term, int index)
 {
 	int		nb_colom;

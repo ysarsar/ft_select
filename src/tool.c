@@ -6,11 +6,11 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 18:42:29 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/01/08 18:41:40 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/01/08 22:50:35 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include    "../includes/ft_select.h"
+#include "../includes/ft_select.h"
 
 int				fd_putchar(int c)
 {
@@ -48,10 +48,10 @@ void			exit_term(t_term *term)
 {
 	tputs(tgetstr("ve", NULL), 0, fd_putchar);
 	free_list(term);
-	exit (0);
+	exit(0);
 }
 
-void		print_error(char *str)
+void			print_error(char *str)
 {
 	exit(1);
 }

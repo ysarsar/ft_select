@@ -6,7 +6,7 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 18:13:13 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/01/08 19:36:50 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/01/08 22:46:49 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ static	int		get_key(t_term *term, int index)
 	if (read(0, &r, 4) < 0)
 		print_error("read");
 	if (r == K_LEFT)
-		{
-			if (index == 0)
-				return (term->info.nb_elem - 1);
-			return (index - 1);
-		}
+	{
+		if (index == 0)
+			return (term->info.nb_elem - 1);
+		return (index - 1);
+	}
 	if (r == K_RIGHT)
 	{
 		if (index == (term->info.nb_elem - 1))
