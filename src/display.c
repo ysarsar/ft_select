@@ -6,7 +6,7 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 20:39:28 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/01/08 19:07:51 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/01/08 19:34:13 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void			display_list(t_term *term, int index)
 		{
 			x = 0;
 			y++;
+			tputs(tgoto(tgetstr("cm", NULL), x, y), 0, fd_putchar);
 		}
 		if (k == i)
 			print_list(tmp, 1);

@@ -6,7 +6,7 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 19:47:16 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/01/08 18:49:48 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/01/08 19:25:44 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,15 @@ void			ft_remove_node(t_term *term, int index)
 
 	cur = term->list;
 	i = 0;
+	if (index == 0)
+	{
+		tmp = term->list;
+		term->list = term->list->next;
+		free(tmp->color);
+		ft_strdel(&tmp->name);
+		free(tmp);
+		return ;
+	}
 	while (cur)
 	{
 		if (index == i + 1)
