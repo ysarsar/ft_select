@@ -6,7 +6,7 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 20:18:09 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/01/08 22:48:23 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/01/09 23:06:26 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void			get_terminal_size(t_term *term)
 int				check_size(t_term *term)
 {
 	if ((term->info.nb_col * term->info.nb_row) <
-		(term->info.nb_elem * (term->info.max_len + 1)))
+		((term->info.nb_elem + 20) * (term->info.max_len + 1)))
 	{
 		ft_putendl_fd("Window size is too small.", 2);
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 19:47:16 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/01/08 22:44:25 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/01/09 22:59:59 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static	int		rmv_nde(t_term *term, int index)
 	return (0);
 }
 
-void			ft_remove_node(t_term *term, int index)
+int				ft_remove_node(t_term *term, int index)
 {
 	t_lst	*tmp;
 	t_lst	*cur;
@@ -80,7 +80,7 @@ void			ft_remove_node(t_term *term, int index)
 	cur = term->list;
 	i = 0;
 	if (rmv_nde(term, index))
-		return ;
+		return (term->info.nb_elem - 1);
 	while (cur)
 	{
 		if (index == i + 1)
@@ -95,4 +95,5 @@ void			ft_remove_node(t_term *term, int index)
 		cur = cur->next;
 		i++;
 	}
+	return (term->info.nb_elem - 1);
 }

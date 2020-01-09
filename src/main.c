@@ -6,7 +6,7 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 18:13:13 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/01/08 22:46:49 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/01/09 23:00:28 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,34 +29,20 @@ static	int		get_key(t_term *term, int index)
 	if (read(0, &r, 4) < 0)
 		print_error("read");
 	if (r == K_LEFT)
-	{
-		if (index == 0)
-			return (term->info.nb_elem - 1);
-		return (index - 1);
-	}
+		return (index == 0 ? term->info.nb_elem - 1 : index - 1);
 	if (r == K_RIGHT)
-	{
-		if (index == (term->info.nb_elem - 1))
-			return (0);
-		return (index + 1);
-	}
+		return (index == (term->info.nb_elem - 1) ? 0 : index + 1);
 	if (r == K_SP)
 	{
 		ft_selected(term, index);
-		if (index == term->info.nb_elem - 1)
-			return (0);
-		return (index + 1);
+		return (index == term->info.nb_elem - 1 ? 0 : index + 1);
 	}
 	if (r == K_ESC)
 		return (-1);
 	if (r == K_RET)
 		ft_return(term);
 	if (r == K_DEL || r == K_BSP)
-	{
-		ft_remove_node(term, index);
-		if (index == term->info.nb_elem - 1)
-			return (index - 1);
-	}
+		return (index == ft_remove_node(term, index) ? index - 1 : index);
 	if (r == K_DOWN)
 		return (move_down(term, index));
 	if (r == K_UP)
