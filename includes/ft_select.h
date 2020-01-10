@@ -72,7 +72,7 @@ int					check_size(t_term *term);
 void				display_list(t_term *term, int index);
 void				ft_selected(t_term *term, int index);
 void				ft_return(t_term *term);
-void				ft_remove_node(t_term *term, int index);
+int					ft_remove_node(t_term *term, int index);
 int					move_down(t_term *term, int index);
 int					move_up(t_term *term, int index);
 void				catch_signal(void);

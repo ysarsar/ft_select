@@ -46,7 +46,7 @@ static	void	dsp_lst(t_term *term, int index)
 	i = -1;
 	while (tmp)
 	{
-		if (x + term->info.max_len + 1 >= term->info.nb_col)
+		if (x + term->info.max_len + 1 > term->info.nb_col)
 		{
 			x = 0;
 			y++;

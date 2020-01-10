@@ -46,7 +46,7 @@ void			get_terminal_size(t_term *term)
 int				check_size(t_term *term)
 {
 	if ((term->info.nb_col * term->info.nb_row) <
-		((term->info.nb_elem + 20) * (term->info.max_len + 1)))
+		(term->info.nb_elem * (term->info.max_len + 1)))
 	{
 		ft_putendl_fd("Window size is too small.", 2);
 		return (0);
