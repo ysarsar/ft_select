@@ -6,7 +6,7 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 20:39:28 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/01/09 22:35:11 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/01/11 20:25:18 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static	void	dsp_lst(t_term *term, int index)
 	}
 }
 
-void			display_list(t_term *term, int index)
+int				display_list(t_term *term, int index)
 {
 	static	int	k;
 
@@ -73,6 +73,8 @@ void			display_list(t_term *term, int index)
 	get_terminal_size(term);
 	tputs(tgetstr("cl", NULL), 0, fd_putchar);
 	if (!check_size(term))
-		return ;
+		return (0);
+	tputs(tgoto(tgetstr("cm", NULL), 0, 0), 0, fd_putchar);
 	dsp_lst(term, k);
+	return (1);
 }

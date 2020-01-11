@@ -6,7 +6,7 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 22:36:44 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/01/08 22:36:29 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/01/10 23:13:56 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,19 @@ void			ft_selected(t_term *term, int index)
 void			ft_return(t_term *term)
 {
 	t_lst		*tmp;
+	int			i;
 
 	tmp = term->list;
+	i = 0;
 	tputs(tgetstr("te", NULL), 0, fd_putchar);
 	while (tmp)
 	{
 		if (tmp->color)
 		{
+			if (i != 0)
+				ft_putchar(' ');
 			ft_putstr(tmp->name);
-			write(1, " ", 1);
+			i = 1;
 		}
 		tmp = tmp->next;
 	}

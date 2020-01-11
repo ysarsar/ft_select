@@ -6,7 +6,7 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 18:12:42 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/01/08 17:00:56 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/01/11 20:28:18 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@
 # define RESET "\033[00m"
 # define RED "\033[31m"
 
-typedef	struct	winsize	t_win;
-typedef	struct	termios	t_termio;
+typedef	struct winsize	t_win;
+typedef	struct termios	t_termio;
 
 typedef	struct		s_lst
 {
@@ -69,7 +69,7 @@ void				init_list(t_term *term, char **av);
 void				get_terminal_size(t_term *term);
 t_term				*stock_term(t_term *term, int i);
 int					check_size(t_term *term);
-void				display_list(t_term *term, int index);
+int					display_list(t_term *term, int index);
 void				ft_selected(t_term *term, int index);
 void				ft_return(t_term *term);
 int					ft_remove_node(t_term *term, int index);
